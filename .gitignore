@@ -1,0 +1,6 @@
+skin_backend/__pycache__/
+skin_backend/*.pyc
+*.env
+skin_backend/*.keras
+skin_backend/*.weights.h5
+skin_frontend/node_modules/
