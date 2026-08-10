@@ -1,0 +1,289 @@
+.about {
+	padding: 56px 24px 80px;
+	max-width: 1080px;
+}
+
+/* Hero */
+.about-hero {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 32px;
+	max-width: 100%;
+	margin-bottom: 48px;
+	padding: 32px;
+	border-radius: 24px;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	box-sizing: border-box;
+}
+
+.about-hero-text {
+	max-width: 560px;
+	min-width: 0;
+}
+
+.about-hero h1 {
+	font-size: 2.2rem;
+	margin-bottom: 14px;
+}
+
+.about-hero h1 span {
+	color: var(--coral);
+}
+
+.about-intro {
+	color: var(--text-muted);
+	font-size: 0.98rem;
+	line-height: 1.65;
+}
+
+.about-hero-stats {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	flex-shrink: 0;
+}
+
+.hero-stat {
+	display: flex;
+	flex-direction: column;
+	padding: 14px 20px;
+	border-left: 2px solid var(--coral);
+}
+
+.hero-stat-num {
+	font-family: 'Fraunces', serif;
+	font-weight: 700;
+	font-size: 1.6rem;
+	color: #f6f1ea;
+}
+
+.hero-stat-label {
+	font-size: 0.82rem;
+	color: var(--text-muted);
+	margin-top: 2px;
+}
+
+/* How it works + Risk levels, side by side */
+.about-layout {
+	display: grid;
+	grid-template-columns: 1.3fr 1fr;
+	gap: 32px;
+	margin-bottom: 48px;
+	align-items: start;
+}
+
+.about-info,
+.risk-sidebar {
+	min-width: 0;
+}
+
+.section-label {
+	display: inline-block;
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--coral);
+	margin-bottom: 8px;
+}
+
+.about-info h2,
+.risk-sidebar h2 {
+	font-size: 1.5rem;
+	margin-bottom: 14px;
+}
+
+.about-info h2 span {
+	color: var(--coral);
+}
+
+.about-info p {
+	color: var(--text-muted);
+	font-size: 0.92rem;
+	line-height: 1.6;
+	margin-bottom: 12px;
+}
+
+.steps {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	margin-top: 24px;
+}
+
+.step {
+	display: flex;
+	gap: 16px;
+	align-items: flex-start;
+}
+
+.step span {
+	font-family: 'Fraunces', serif;
+	font-weight: 700;
+	font-size: 1.1rem;
+	color: var(--coral);
+	min-width: 28px;
+}
+
+.step h3 {
+	font-size: 1rem;
+	margin-bottom: 4px;
+}
+
+.step p {
+	font-size: 0.88rem;
+	margin-bottom: 0;
+}
+
+/* Risk levels sidebar - dot + line style */
+.risk-sidebar {
+	background: rgba(141, 106, 88, 0.14);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	border-radius: 24px;
+	padding: 28px;
+	box-sizing: border-box;
+}
+
+.risk-sidebar-intro {
+	color: var(--text-muted);
+	font-size: 0.9rem;
+	line-height: 1.6;
+	margin-bottom: 20px;
+}
+
+.risk-line {
+	display: flex;
+	gap: 14px;
+	align-items: flex-start;
+	padding: 14px 0;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.risk-line:first-of-type {
+	border-top: none;
+	padding-top: 0;
+}
+
+.risk-line > div {
+	min-width: 0;
+}
+
+.risk-dot {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	margin-top: 5px;
+	flex-shrink: 0;
+}
+
+.risk-line.low .risk-dot { background: #7bc496; }
+.risk-line.medium .risk-dot { background: #f0c193; }
+.risk-line.high .risk-dot { background: #f1a29f; }
+
+.risk-line h3 {
+	font-size: 1rem;
+	margin-bottom: 4px;
+}
+
+.risk-line p {
+	color: var(--text-muted);
+	font-size: 0.86rem;
+	line-height: 1.55;
+	margin: 0;
+	word-wrap: break-word;
+}
+
+/* Chatbot block, full width, below */
+.chatbot-block {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 32px;
+	align-items: center;
+	background: rgba(141, 106, 88, 0.14);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	border-radius: 24px;
+	padding: 32px;
+	margin-bottom: 40px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.chatbot-text {
+	min-width: 0;
+}
+
+.chatbot-text h2 {
+	font-size: 1.5rem;
+	margin-bottom: 14px;
+}
+
+.chatbot-text h2 span {
+	color: var(--coral);
+}
+
+.chatbot-text p {
+	color: var(--text-muted);
+	font-size: 0.92rem;
+	line-height: 1.6;
+	margin-bottom: 20px;
+	word-wrap: break-word;
+}
+
+.chatbot-image-wrap {
+	width: 100%;
+	max-height: 280px;
+	border-radius: 16px;
+	overflow: hidden;
+}
+
+.chatbot-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	border-radius: 16px;
+}
+
+/* Important / disclaimer, always last */
+.about-disclaimer {
+	background: #FBF6F3;
+	border: 1px solid #F0DDD4;
+	border-radius: 24px;
+	padding: 28px;
+	box-sizing: border-box;
+}
+
+.about-disclaimer .section-label {
+	color: #C1443C;
+}
+
+.about-disclaimer h2 {
+	font-size: 1.4rem;
+	color: #2b2f27;
+	margin-bottom: 10px;
+}
+
+.about-disclaimer p {
+	color: #5c5850;
+	font-size: 0.92rem;
+	line-height: 1.6;
+	margin: 0;
+}
+
+@media (max-width: 800px) {
+	.about-hero {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.about-hero-stats {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.about-layout,
+	.chatbot-block {
+		grid-template-columns: 1fr;
+	}
+}
