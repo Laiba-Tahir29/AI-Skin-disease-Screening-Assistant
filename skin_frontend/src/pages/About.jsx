@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import './About.css';
 import chatbotpic from '../assets/chatbot.png';
+import skinDetailTwo from '../assets/pic2.png';
+import skinDetail1 from '../assets/pic1.png';
 
 function About() {
   return (
@@ -19,19 +21,8 @@ function About() {
           </p>
         </div>
 
-        <div className="about-hero-stats">
-          <div className="hero-stat">
-            <span className="hero-stat-num">3</span>
-            <span className="hero-stat-label">Risk levels explained</span>
-          </div>
-          <div className="hero-stat">
-            <span className="hero-stat-num">2 min</span>
-            <span className="hero-stat-label">Average screening time</span>
-          </div>
-          <div className="hero-stat">
-            <span className="hero-stat-num">24/7</span>
-            <span className="hero-stat-label">Chatbot support</span>
-          </div>
+        <div className="about-hero-visual">
+          <img src={skinDetail1} alt="Skin detail illustration" />
         </div>
       </div>
 
@@ -75,6 +66,21 @@ function About() {
               </div>
             </div>
           </div>
+
+          <div className="about-mini-stats">
+            <div className="mini-stat">
+              <span className="mini-stat-num">3</span>
+              <span className="mini-stat-label">Risk levels</span>
+            </div>
+            <div className="mini-stat">
+              <span className="mini-stat-num">2 min</span>
+              <span className="mini-stat-label">Screening time</span>
+            </div>
+            <div className="mini-stat">
+              <span className="mini-stat-num">24/7</span>
+              <span className="mini-stat-label">Chatbot help</span>
+            </div>
+          </div>
         </div>
 
         <div className="risk-sidebar">
@@ -84,6 +90,10 @@ function About() {
             These levels are meant to make your result easier to understand.
             They are not medical diagnoses.
           </p>
+
+          <div className="risk-visual">
+            <img src={skinDetailTwo} alt="Skin irritation detail" />
+          </div>
 
           <div className="risk-line low">
             <span className="risk-dot"></span>
@@ -111,6 +121,7 @@ function About() {
         </div>
       </div>
 
+
       <div className="chatbot-block">
         <div className="chatbot-text">
           <p className="section-label">AI CHATBOT</p>
@@ -119,8 +130,9 @@ function About() {
             <span> companion.</span>
           </h2>
           <p>
-            Need help understanding your result? The built-in chatbot can explain
-            things in simple language and guide you through the screening process.
+            Need help understanding your result? The built-in chatbot can offer
+            advice and recommendations to guide you until you're able to consult
+            a proper dermatologist.
           </p>
           <Link to="/screen" className="cta">
             Start a screening →

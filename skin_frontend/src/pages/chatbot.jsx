@@ -10,15 +10,6 @@ function ChatWidget() {
   ]);
   const bodyRef = useRef(null);
 
-  const getBotReply = (text) => {
-    const message = text.toLowerCase();
-    if (message.includes('low')) return 'Low risk usually means the result looks less concerning. Keep monitoring the area and use the result as general guidance.';
-    if (message.includes('medium')) return 'Medium risk means it is worth paying attention to. If the issue persists, a dermatologist visit is a good next step.';
-    if (message.includes('high')) return 'High risk is more concerning. Please get a dermatologist or doctor to review it soon.';
-    if (message.includes('result') || message.includes('disease')) return 'You can ask me about the risk level, what the result means, or what to do next.';
-    if (message.includes('photo') || message.includes('image')) return 'Use a clear, well-lit close-up photo. Blurry or dark images can make the screening less reliable.';
-    return 'I can explain low, medium, and high risk, or help you understand how to read the screening result.';
-  };
 
   useEffect(() => {
     if (bodyRef.current) {
@@ -26,16 +17,58 @@ function ChatWidget() {
     }
   }, [messages, open]);
 
-  const handleSend = (e) => {
-    e.preventDefault();
-    if (!input.trim()) return;
-    const userText = input.trim();
-    setMessages((prev) => [...prev, { from: 'user', text: userText }]);
-    setInput('');
-    setTimeout(() => {
-      setMessages((prev) => [...prev, { from: 'bot', text: getBotReply(userText) }]);
-    }, 500);
-  };
+  const handleSend = async (e) => {
+  e.preventDefault();
+
+  if (!input.trim()) return;
+
+  const userText = input.trim();
+
+  setMessages((prev) => [
+    ...prev,
+    { from: 'user', text: userText }
+  ]);
+
+  setInput('');
+
+  try {
+    const response  = await fetch('http://127.0.0.1:8000/chat', { 
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        message: userText,
+        condition: sessionStorage.getItem('lastCondition') || '',
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Server error: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    setMessages((prev) => [
+      ...prev,
+      {
+        from: 'bot',
+        text: data.response,
+      },
+    ]);
+
+  } catch (error) {
+    console.error('Chat error:', error);
+
+    setMessages((prev) => [
+      ...prev,
+      {
+        from: 'bot',
+        text: 'Sorry, I could not connect to the assistant. Please make sure the backend server is running.',
+      },
+    ]);
+  }
+};
 
   return (
     <>

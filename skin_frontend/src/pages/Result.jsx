@@ -1,9 +1,15 @@
 import { useLocation, Link } from 'react-router-dom';
 import './Result.css';
+import { useEffect } from 'react';
 
 function Result() {
   const location = useLocation();
   const data = location.state;
+  useEffect(() => {
+    if (data?.result?.disease) {
+      sessionStorage.setItem('lastCondition', data.result.disease);
+    }
+  }, [data]);
 
   if (!data) {
     return (

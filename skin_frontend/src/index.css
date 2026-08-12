@@ -62,6 +62,11 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 
 a { text-decoration: none; color: inherit; }
 
+#root {
+  position: relative;
+  isolation: isolate;
+}
+
 .container {
   max-width: 760px;
   margin: 0 auto;
