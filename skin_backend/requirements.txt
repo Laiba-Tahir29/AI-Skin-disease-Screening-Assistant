@@ -1,11 +1,12 @@
 fastapi
 uvicorn[standard]
-tensorflow
-numpy
+tensorflow-cpu
 pillow
 python-multipart
+numpy
 python-dotenv
-requests
-faiss-cpu
 google-genai
+requests
+pydantic
+faiss-cpu
 sentence-transformers
