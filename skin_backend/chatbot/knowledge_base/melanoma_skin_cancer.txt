@@ -1,0 +1,8 @@
+Condition: Melanoma, Skin Cancer, Nevi and Moles (High Risk)
+
+General guidance:
+- Avoid direct sun exposure, especially during peak hours, and use broad-spectrum sunscreen and protective clothing.
+- Do not attempt to treat, remove, or alter the area yourself.
+- Track the ABCDE signs — Asymmetry, Border irregularity, Color variation, Diameter change, and Evolving appearance — and note any changes.
+- Avoid tanning beds and prolonged unprotected sun exposure going forward.
+- This finding is flagged as higher risk — please prioritize seeing a dermatologist as soon as possible for a full evaluation.

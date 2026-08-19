@@ -1,0 +1,94 @@
+.about {
+  padding: 56px 24px 80px;
+  max-width: 640px;
+}
+
+.about h1 {
+  font-size: 2rem;
+  margin-bottom: 32px;
+}
+
+.about-block {
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-block h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.about-block p, .about-block li {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.about-block ul {
+  padding-left: 20px;
+}
+
+.about-block li { margin-bottom: 6px; }
+
+.about-block.highlight {
+  background: #FBF6F3;
+  border: 1px solid #F0DDD4;
+  border-radius: 12px;
+  padding: 20px 24px;
+  border-bottom: none;
+}
+
+.about-block.highlight h3 { color: var(--coral-dark); }
+
+/* Risk levels section */
+.risk-intro {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 20px;
+}
+
+.risk-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.risk-card {
+  padding: 20px 22px;
+  border-radius: 12px;
+  color: white;
+}
+
+.risk-card-low { background: linear-gradient(135deg, #4A7C59, #3A6147); }
+.risk-card-medium { background: linear-gradient(135deg, #C68A2E, #A66F1F); }
+.risk-card-high { background: linear-gradient(135deg, #C1443C, #9E362F); }
+
+.risk-card-pill {
+  display: inline-block;
+  background: rgba(255,255,255,0.9);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+.risk-card p {
+  color: rgba(255,255,255,0.9);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* Chatbot teaser */
+.chatbot-teaser {
+  background: #F0F7F4;
+  border: 1px solid #D5E8DE;
+  border-radius: 12px;
+  padding: 20px 24px;
+  border-bottom: none;
+}
+
+.chatbot-teaser h3 { color: var(--deep); }
+.chatbot-teaser p { color: var(--text-muted); }
