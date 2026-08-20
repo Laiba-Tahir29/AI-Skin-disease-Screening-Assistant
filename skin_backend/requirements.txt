@@ -9,4 +9,3 @@ google-genai
 requests
 pydantic
 faiss-cpu
-sentence-transformers
