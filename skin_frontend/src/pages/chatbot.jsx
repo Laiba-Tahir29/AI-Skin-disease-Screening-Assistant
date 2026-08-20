@@ -2,6 +2,9 @@ import { useState, useRef, useEffect } from 'react';
 import './chatbot.css';
 import chatbotAvatar from '../assets/chatbot.png';
 
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
+
 function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
@@ -31,8 +34,10 @@ function ChatWidget() {
 
   setInput('');
 
+  
+
   try {
-    const response  = await fetch('http://127.0.0.1:8000/chat', { 
+    const response  = await fetch(`${API_BASE_URL}/chat`, { 
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
