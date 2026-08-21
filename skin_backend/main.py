@@ -17,13 +17,16 @@ from chatbot.rag import get_chatbot_response
 MODEL_PATH = "best_model_b3_final.weights.h5"
 MODEL_URL ="https://huggingface.co/Laibatahir/dermascan-b3-weights/resolve/main/best_model_b3_final.weights.h5"
 
+
 if not os.path.exists(MODEL_PATH):
     print("Downloading model weights...")
-    response = requests.get(MODEL_URL)
-    response.raise_for_status()
-    with open(MODEL_PATH, "wb") as f:
-        f.write(response.content)
+    with requests.get(MODEL_URL, stream=True) as r:
+        r.raise_for_status()
+        with open(MODEL_PATH, "wb") as f:
+            for chunk in r.iter_content(chunk_size=8192):
+                f.write(chunk)
     print("Model downloaded!")
+    
 app = FastAPI()
 
 
