@@ -48,6 +48,10 @@ function Screen() {
   return (
     <div className="screen container">
       <p className="eyebrow">Step 1 of 2</p>
+      <div className="accuracy-banner">
+  ⚠️ This model has an estimated accuracy of 60%. It is not a medical diagnosis — always consult a certified dermatologist.
+</div>
+    
       <h1>Upload a photo</h1>
       <p className="screen-sub">
         Choose a clear, close-up photo of the affected skin area. Good lighting

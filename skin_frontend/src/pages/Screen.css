@@ -7,6 +7,17 @@
 		font-size: 2rem;
 		margin-bottom: 12px;
 	}
+	.accuracy-banner {
+	background: rgba(255, 196, 140, 0.15);
+	border: 1px solid rgba(240, 193, 168, 0.45);
+	border-radius: 12px;
+	padding: 12px 16px;
+	font-size: 0.85rem;
+	line-height: 1.5;
+	color: var(--text);
+	text-align: center;
+	margin-bottom: 20px;
+	}
 
 	.screen-sub {
 		color: var(--text-muted);
