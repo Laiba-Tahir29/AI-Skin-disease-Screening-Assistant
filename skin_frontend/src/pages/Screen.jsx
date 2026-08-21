@@ -7,6 +7,7 @@ function Screen() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [loadingMessage, setLoadingMessage] = useState('Analyzing…');
   const [errorMsg, setErrorMsg] = useState(null);
   const navigate = useNavigate();
 
@@ -27,9 +28,16 @@ function Screen() {
 
     setLoading(true);
     setErrorMsg(null);
+    setLoadingMessage('Analyzing…');
+
+    // Agar 6 second se zyada lage, "waking up" message dikhao
+    const slowServerTimer = setTimeout(() => {
+      setLoadingMessage('Waking up the server, this can take up to a minute…');
+    }, 6000);
 
     try {
       const data = await predictSkinDisease(selectedImage);
+      clearTimeout(slowServerTimer);
 
       if (data.error) {
         setErrorMsg(data.message);
@@ -39,8 +47,9 @@ function Screen() {
 
       navigate('/result', { state: { result: data, preview } });
     } catch (error) {
+      clearTimeout(slowServerTimer);
       console.error(error);
-      setErrorMsg('Something went wrong. Please check that the backend server is running.');
+      setErrorMsg('The server is taking longer than usual to respond. Please wait a moment and try again.');
       setLoading(false);
     }
   };
@@ -49,9 +58,9 @@ function Screen() {
     <div className="screen container">
       <p className="eyebrow">Step 1 of 2</p>
       <div className="accuracy-banner">
-  ⚠️ This model has an estimated accuracy of 60%. It is not a medical diagnosis — always consult a certified dermatologist.
-</div>
-    
+        ⚠️ This model has an estimated accuracy of 60%. It is not a medical diagnosis — always consult a certified dermatologist.
+      </div>
+
       <h1>Upload a photo</h1>
       <p className="screen-sub">
         Choose a clear, close-up photo of the affected skin area. Good lighting
@@ -108,7 +117,7 @@ function Screen() {
         onClick={handleAnalyze}
         disabled={loading || !selectedImage}
       >
-        {loading ? 'Analyzing…' : 'Analyze Image'}
+        {loading ? loadingMessage : 'Analyze Image'}
       </button>
     </div>
   );

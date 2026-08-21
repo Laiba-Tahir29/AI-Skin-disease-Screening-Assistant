@@ -8,7 +8,9 @@ export const predictSkinDisease = async (imageFile) => {
   formData.append('file', imageFile);
 
   const response = await axios.post(`${API_BASE_URL}/predict`, formData, {
-    headers: { 'Content-Type': 'multipart/form-data' }
+    headers: { 'Content-Type': 'multipart/form-data' },
+    timeout: 60000, // 60 seconds timeout
+
   });
 
   return response.data;
