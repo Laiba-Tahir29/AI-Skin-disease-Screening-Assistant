@@ -26,7 +26,7 @@ if not os.path.exists(MODEL_PATH):
             for chunk in r.iter_content(chunk_size=8192):
                 f.write(chunk)
     print("Model downloaded!")
-    
+
 app = FastAPI()
 
 
@@ -293,4 +293,8 @@ def chat(request: ChatRequest):
     return {
         "response": response
     }
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
 
